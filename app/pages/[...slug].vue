@@ -3,7 +3,7 @@ const route = useRoute()
 console.log("LAYER")
 const { data: page } = await useAsyncData(  () => {
   
-  return queryCollection('content').path('/'+route.params.slug[0]).count()
+  return queryCollection('content').path('/'+route.params.slug[0]).first()
 })
 console.log("LAYER", page.value, route.params.slug[0])
 // if (!page.value) {
