@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const route = useRoute()
 console.log("LAYER")
-const { data: page } = await useAsyncData('page-' + route.path, () => {
+const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection('content').path(route.path).first()
 })
 
