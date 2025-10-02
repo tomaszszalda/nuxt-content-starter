@@ -1,10 +1,10 @@
 <script setup lang="ts">
 const route = useRoute()
 console.log("LAYER")
-const { data: page } = await useAsyncData(route.path, () => {
+const { data: page } = await useAsyncData('page-' + route.path, () => {
   return queryCollection('content').path(route.path).first()
 })
-
+console.log("LAYER", page, route.path)
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
